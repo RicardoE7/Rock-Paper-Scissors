@@ -1,6 +1,7 @@
 console.log("Hello World! Let's Play Rock, Paper, Scissors.\nWe'll play five rounds and whoever has the most wins after five rounds wins the game! \nType game() into the console and press enter to start the game")
 let wins = 0;
 let losses = 0;
+let draws = 0;
 let computerSelection;
 let playerSelection;
 const resultDiv = document.querySelector('#result')
@@ -48,9 +49,10 @@ let choices;
 
 if (comLower == playerLower)
 {
+    draws++
     choices = `Your choice: ${playerSelection}
     Computers choice: ${computerSelection}`
-    gameOutcome = `It's a draw!  Score: ${wins}: ${losses}`
+    gameOutcome = `It's a draw!  Score: ${wins}: ${losses} Draws: ${draws}`
 }
 if (comLower == "rock" && playerLower == "scissors")
 {
@@ -101,6 +103,7 @@ if (wins == 5)
     gameOutcome = `Congrats! You beat the computer ${wins} to ${losses}. Game to 5 again? Make a selection`
     wins = 0
     losses = 0
+    draws = 0
 }
 if(losses == 5)
 {
@@ -109,6 +112,7 @@ if(losses == 5)
     gameOutcome = `Nice try. The computer beat you ${losses} to ${wins}. Game to 5 again? Make a selection`
     wins = 0
     losses = 0
+    draws = 0
 }
 h3.textContent = choices
 para.textContent = gameOutcome
